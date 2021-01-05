@@ -24,12 +24,25 @@
         <property name="suffix" value=".jsp" />
     </bean>
 
-    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
-          destroy-method="close">
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+
+
+
         <property name="driverClass" value="com.mysql.cj.jdbc.Driver" />
         <property name="jdbcUrl" value="jdbc:mysql://localhost:3307/my_db?useSSL=false" />
         <property name="user" value="root" />
         <property name="password" value="root" />
+
+
+
+        <property name="maxIdleTime" value="30" />
+        <property name="loginTimeout" value="300"/>
+        <property name="initialPoolSize" value="5"></property>
+        <property name="checkoutTimeout" value="1000"/>
+        <property name="automaticTestTable" value="C3P0_TEST_TABLE"></property>
+        <property name="testConnectionOnCheckin" value="true"></property>
+        <property name="idleConnectionTestPeriod" value="60"></property>
+
     </bean>
 
 
